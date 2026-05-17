@@ -1,4 +1,4 @@
-const text = "Live de seg á sab às 18h!";
+const text = "Lives de Dom a Sex às 17H!";
 const element = document.getElementById("typewriter");
 let index = 0;
 let isDeleting = false;
