@@ -1,26 +1,31 @@
-const text = "Live de seg á sab às 18h!";
+const text = "Lives de Dom a Sex às 20H!";
 const element = document.getElementById("typewriter");
 let index = 0;
 let isDeleting = false;
 
-function type() {
-    if (isDeleting) {
-        element.textContent = text.substring(0, index--);
-    } else {
-        element.textContent = text.substring(0, index++);
-    }
+function typewriter() {
+    if (!element) return;
 
+    element.textContent = text.substring(0, index);
     let delay = isDeleting ? 100 : 200;
 
-    if (!isDeleting && index === text.length + 1) {
-        isDeleting = true;
-        delay = 1000; // pausa antes de apagar
-    } else if (isDeleting && index === 0) {
-        isDeleting = false;
-        delay = 500; // pausa antes de começar a digitar novamente
+    if (isDeleting) {
+        if (index > 0) {
+            index -= 1;
+        } else {
+            isDeleting = false;
+            delay = 500; // pausa antes de começar a digitar novamente
+        }
+    } else {
+        if (index < text.length) {
+            index += 1;
+        } else {
+            isDeleting = true;
+            delay = 1000; // pausa antes de apagar
+        }
     }
 
-    setTimeout(type, delay);
+    setTimeout(typewriter, delay);
 }
 
-type();
+typewriter();
