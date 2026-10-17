@@ -9,7 +9,7 @@
         speed: 0.18,
         connectionDistance: 90,
         interactionDistance: 140,
-        interactionStrength: 0.45,
+        interactionStrength: 0.55,
         interactiveByDefault: false
     };
 
@@ -72,7 +72,7 @@
                 const distance = Math.hypot(particle.x - other.x, particle.y - other.y);
 
                 if (distance < config.connectionDistance) {
-                    const opacity = 0.08 * (1 - distance / config.connectionDistance);
+                    const opacity = 0.10 * (1 - distance / config.connectionDistance);
                     context.strokeStyle = `rgba(${config.connectionColor}, ${opacity})`;
                     context.beginPath();
                     context.moveTo(particle.x, particle.y);
