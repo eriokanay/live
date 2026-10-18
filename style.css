@@ -41,7 +41,7 @@ footer {
 
 #titulo-principal h3 {
   font-size: 16px;
-  color: #000000;
+  color: #fffefe;
   margin-bottom: 20px;
   height: 2.4rem;
 }
@@ -53,7 +53,7 @@ footer {
 
 #social-media a {
   font-size: 16px;
-  color: #000000;
+  color: #fffefe;
   text-decoration: none;
   margin: 0 8px;
   transition: color 0.3s;
@@ -126,7 +126,7 @@ footer {
   margin-top: 40px;
   padding: 20px 0;
   background: transparent;
-  color: #000000;
+  color: #fffefe;
   font-size: 14px;
   font-family: Arial, Helvetica, sans-serif;
   font-style: italic;
@@ -134,8 +134,7 @@ footer {
 }
 
 footer a {
-  color: #000000;
-  text-decoration: none;
+  color: #000000 none;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
   font-style: italic;
