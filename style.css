@@ -151,3 +151,94 @@ footer a {
     width: 90%;
   }
 }
+
+/* ===== TELA DE LOADING ===== */
+:root {
+  --load-bg: #18191b;
+  --load-bar-bg: #f7ecfc;
+  --load-bar-fill: #c85cfc;
+  --load-text: #fffefe;
+  --char-size: 108px; /* altura do personagem (múltiplo de 36 = pixel perfeito) */
+}
+
+#loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999; /* acima das partículas e do conteúdo */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: var(--load-bg);
+  color: var(--load-text);
+  font-family: "Fredoka", sans-serif;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#loader.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.load-track {
+  position: relative;
+  width: min(420px, 80vw);
+  margin-top: var(--char-size);
+}
+
+.load-bar {
+  height: 22px;
+  border-radius: 999px;
+  background: var(--load-bar-bg);
+  border: 2px solid #000;
+  overflow: hidden;
+}
+
+.load-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--load-bar-fill);
+  border-radius: 999px;
+}
+
+.load-char {
+  position: absolute;
+  bottom: 14px; /* "pisa" na barra; ajuste se precisar */
+  left: 0%;
+  height: var(--char-size);
+  width: auto;
+  transform: translateX(-50%);
+  image-rendering: pixelated;
+}
+
+/* aparece só se o gif não carregar */
+.load-char.fallback {
+  background: var(--load-bar-fill);
+  border: 2px solid #000;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: hop 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes hop {
+  to { transform: translateX(-50%) translateY(-10px); }
+}
+
+.load-percent {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: #c85cfc;
+}
+
+.load-label {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #loader { transition: none; }
+  .load-char.fallback { animation: none; }
+}
